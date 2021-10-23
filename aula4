@@ -1,0 +1,55 @@
+class aula4 {
+	
+	// Trabalho Prévio
+	
+	// Construir um vetor com os números naturais até um dado número n.
+	static int[] naturals (int n) {
+		
+		int v[] = new int [n];
+		
+		while (n>0) {
+			
+			v[n-1] = n;
+			n--;
+		}
+		
+		return v;
+	}
+	
+	// Calcular o somatório dos valores de um vetor
+	static int sum (int[] v) {
+		int i=0, sum = 0;
+		while (i < v.length) {
+			sum = sum + v[i];
+			i++;
+		}
+	return sum;
+}
+
+	// Construir um vetor com dígitos aleatórios (números de 0 a 9), dado o comprimento.
+	static int[] randomDigits (int n) {
+		
+		int i;
+		int v[] = new int [n];
+		
+		while (n != 0) {
+			
+			i = (int) ( Math.random() *10);
+			v[n-1] = i;
+			n--;
+		}
+		return v;
+	}
+
+// A. Calcular a média dos valores de um vetor. Na alínea B do Trabalho Prévio é pedida
+//	   uma função para calcular o somatório de um vetor de inteiros que é útil neste contexto.
+	static double mean (int[] v) {
+		
+		return (double) sum(v)/v.length;
+	}
+
+
+
+
+
+}
