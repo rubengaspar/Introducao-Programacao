@@ -1,22 +1,20 @@
-class aula4 {
+public class aula4 {
+
+// Trabalho Prévio
 	
-	// Trabalho Prévio
-	
-	// Construir um vetor com os números naturais até um dado número n.
+// Construir um vetor com os números naturais até um dado numero n.
 	static int[] naturals (int n) {
 		
 		int v[] = new int [n];
 		
 		while (n>0) {
-			
 			v[n-1] = n;
-			n--;
+			n--; // n = n - 1;
 		}
-		
 		return v;
 	}
 	
-	// Calcular o somatório dos valores de um vetor
+// Calcular o somatório dos valores de um vetor
 	static int sum (int[] v) {
 		int i=0, sum = 0;
 		while (i < v.length) {
@@ -26,7 +24,7 @@ class aula4 {
 	return sum;
 }
 
-	// Construir um vetor com dígitos aleatórios (números de 0 a 9), dado o comprimento.
+// Construir um vetor com dígitos aleatórios (números de 0 a 9), dado o comprimento.
 	static int[] randomDigits (int n) {
 		
 		int i;
@@ -48,8 +46,254 @@ class aula4 {
 		return (double) sum(v)/v.length;
 	}
 
+	
+// B. Copiar (replicar) um vetor de inteiros, tendo o novo vetor um tamanho dado como argumento.
+	
+	static int[] copy (int[] v, int a) {
+		
+		int i = 0, b;
+		int newV[] = new int [a];
+		
+		b = Math.min(v.length, newV.length);
+				
+		while (i != b) {
+			newV[i] = v[i];
+			i++;
+		}
+		
+		return newV;
+	}
+	
+	
+	
+	
+// C. Copiar (replicar) um vetor de inteiros, tendo o novo vetor o mesmo tamanho que o original. 
+// Esta função é uma especialização da anterior, dado que o que se pretende pode ser obtido 
+// invocando-a com o segundo argumento igual ao tamanho do vetor passado no primeiro argumento 
+//	(copy({1, 2, 3}, 3) -> {1, 2, 3} ). Desta forma, esta função pode ser definida à custa da anterior.
+	
+	static int[] copy2 (int[] v) {
+		
+		return copy(v,v.length);
+	}
 
+	
+	
+// D. Verificar se existe determinado número n num vetor.
+	
+	static boolean exists(int a, int[] v) {
+	
+		int i = 0;
+		
+		while (i != v.length) {
+			if (a == v[i])
+				return true;
+		}
+		return false;
+		
+	}
+	
+// E. Contar o número de ocorrências de um determinado número num vetor.
+	static int count(int a, int[] v) {
+		int i = 0, cont = 0;
+			while (i != v.length) {
+				if (v[i] == a)
+					cont++;
+			i++;
+			}
+		return cont;
+	}
+	
+// F. Defina uma função que devolva o valor máximo de um vetor.
+	static int max(int[]v) {
+		
+		int i = 1, max = v[0];
+		
+		while (i != v.length) {
+			if (v[i] > max)
+				max = v[i];
+		i++;
+		}
+		return max;
+	}
+	
+// G. Construir um sub-vetor de outro vetor, dados o índice do primeiro elemento e o índice do último elemento a incluir.
+	static int[] subArray (int a, int b, int[]v) {
+		
+		int[] newV = new int[b-a+1];
+		int i = 0;
+		
+		while (i != newV.length) {
+			newV[i] = v[a];
+			a++; 
+			i++;			
+		}
+		
+		return newV;
+	}
+	
+// H. Obter a primeira metade de um vetor v, incluindo um parâmetro booleano para permitir indicar se o elemento do meio é para incluir 
+//	(caso o comprimento do vetor seja ímpar). Se o comprimento do vetor for par, este parâmetro não terá efeito.
+	static int half (int b, boolean a) {
+		int half;
+		
+		if (a == true)
+			half = b/2+1;
+		else
+			half = b/2;
+		
+		return half;
+	}
+	
+	
+	static int[] firstHalf (int[]v, boolean a) {
+		
+		int i = 0;
+		
+		int[] newV = new int[half(v.length,a)];
+		
+		while (i != newV.length) {
+			newV[i] = v[i];
+			i++;
+		}
+		return newV;
+	}
+	
+// I. Obter a segunda metade de um vetor, analogamente à alínea anterior.
+	static int[] secondHalf (int[]v, boolean a) {
+		
+		
+		int i = 0;
+		int n = half(v.length,a);
+		
+		int[] newV = new int[n];
+		
+		while (i != newV.length) {
+			if (a== true)
+				newV[i] = v[i+n-1];
+			else if (a == false)
+				newV[i] = v[i+n+1];
+			i++;
+		}
+		
+		return newV;
+	}
+	
+// J. Construir um vetor juntando outros dois vetores (parte esquerda e direita).
+	static int[] merge (int[]v1, int[]v2) {
+		
+		int i = 0;
+		int a = v1.length + v2.length;
+		int[] merge = new int[a];
+		
+		while (i < v1.length) {
+			merge[i] = v1[i];
+			i++;
+		}
+		
+		while (i < v1.length + v2.length) {
+			merge[i] = v2[i-v1.length];
+			i++;
+		}
+		
+		
+		return merge;
+	}
+	
+	
+// K. Construa um vetor invertido com base noutro. Ou seja, o novo vetor será composto pelos elementos do vetor dado pela ordem inversa.
+	static int[] invert (int[]v) {
+		
+		int i = 0, j = v.length-1;
+		int[] invert = new int [v.length];
+		
+		while (i != v.length) {
+			invert[i] = v[j];
+			i++;
+			j--;			
+		}
+		return invert;
+	}
 
+// L. Sortear um número de um vetor, com igual probabilidade para todos os elementos. A solução passa por sortear um índice válido do vetor.
+	static int random(int[]v) {
 
-
+		int num = v[(int) (Math.random()*v.length)];
+		return num;
+	}
+	
+// Exercicios Extra
+// A. Construir um vetor com base noutro, de modo a ter o dobro do tamanho e cada elemento duplicado.
+	static int[] duplicate(int[]v) {
+		
+		int[] newV = new int [v.length*2];
+		int i = 0, j= 0;
+		
+		while (i != v.length) {
+			newV[j] = v[i];
+			j++;
+			newV[j] = v[i];
+			j++;
+			i++;
+		}
+		return newV;
+	}
+	
+// B. Construir um vetor com base noutro, sendo a primeira metade uma cópia e a segunda metade os mesmos elementos pela ordem inversa.
+	static int[] duplicateInvert (int[]v) {
+		
+		int i = 0, j = 0;
+		int[] newV = new int [v.length*2];
+		int[] invert = invert(v);
+		
+		while (i != newV.length) {
+			if (i < v.length) {
+				newV[i] = invert[i];
+				i++;
+			} else {
+				newV[i] = v[j];
+				i++;
+				j++;
+			}
+		}
+		return newV;
+	}
+		
+// C. Construir um vetor com base noutro, representando uma cópia sem o elemento do meio (caso o tamanho seja ímpar).
+	static int[] noMid (int[] v) {
+	
+		int comp;
+		
+		if (v.length%2!=0)
+			comp = v.length-1;
+		else {
+			comp = v.length;
+			return v; }
+		
+		int[] newV = new int [comp];
+		
+		newV = merge(firstHalf(v, false),secondHalf(v, false));
+		return newV;
+	}
+	
+// D. Construir um vetor com n números da sequência de Fibonacci.
+	static int fibonacci (int a) {
+		if(a <= 1)
+			return a;
+		else
+			return fibonacci(a - 1) + fibonacci(a - 2);
+	}
+	
+	
+	static int[] fibVector (int n) {
+		
+		int i = 0;
+		int[]v = new int[n];
+		
+		while (i!= n) {
+			v[i] = fibonacci(i);
+			i++;
+		}
+		return v;
+	}
 }
