@@ -70,8 +70,25 @@ class aula8 {
 		
 		ColorImage selection = salazar.selection(salazar, 30, 30, 70, 150);
 	
-		return selection;
+	return selection;
 	}
 	
+	// B1. Aplicar um efeito de posterize, indicando uma cor para os píxeis escuros e uma cor para os pixels claros.
+	static ColorImage testPosterize() {
+		ColorImage salazar = new ColorImage("C:\\Users\\ruben\\eclipse-workspace\\aula4\\src\\objc1.png");
+		
+		ColorImage posterize = Images.posterize(salazar, Color.Blue, Color.White);
+		
+	return posterize;
+	}
+	
+	// B2. Test popArt
+	static ColorImage testPopArt() {
+		ColorImage salazar = new ColorImage("C:\\Users\\ruben\\eclipse-workspace\\aula4\\src\\objc1.png");
+		
+		ColorImage popArt = Images.popArt(salazar);
+		
+	return popArt;
+	}
 	
 }
