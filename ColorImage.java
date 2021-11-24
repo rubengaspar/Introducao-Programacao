@@ -60,33 +60,45 @@ class ColorImage {
 	ColorImage changeBrightness (ColorImage img, int delta) {    
 		
 		ColorImage newImg = new ColorImage(img.getWidth(), img.getHeight());
-	
+		int r, g, b;
+		
 		for (int x = 0; x != img.getWidth(); x++) {
 			for (int y = 0; y != img.getHeight(); y++) {
-				if ( ((img.getColor(x,y).getR() + delta) < 0) || 
-					 ((img.getColor(x,y).getG() + delta) < 0) || 
-					 ((img.getColor(x,y).getB() + delta) < 0) ||
-					 ((img.getColor(x,y).getR() + delta) > 255) || 
-					 ((img.getColor(x,y).getG() + delta) > 255) || 
-					 ((img.getColor(x,y).getB() + delta) > 255)) {
-					
-					Color newColor1 = img.getColor(x, y);
-					newImg.setColor(x, y, newColor1);
 				
-				} else {
-					Color newColor2 = new Color( delta + img.getColor(x,y).getR(), 
-												delta + img.getColor(x,y).getG(), 
-												delta + img.getColor(x,y).getB());
-					newImg.setColor(x, y, newColor2);
+				//check limit for red
+				if (img.getColor(x,y).getR() + delta > 255)
+					r = 255;
+				else if (img.getColor(x,y).getR() + delta < 0)
+					r = 0;
+				else
+					r = img.getColor(x,y).getR() + delta;
+				
+				//check limit for green
+				if (img.getColor(x,y).getG() + delta > 255)
+					g = 255;
+				else if (img.getColor(x,y).getG() + delta < 0)
+					g = 0;
+				else
+					g = img.getColor(x,y).getG() + delta;
+				
+				//check limit for blue
+				if (img.getColor(x,y).getB() + delta > 255)
+					b = 255;
+				else if (img.getColor(x,y).getB() + delta < 0)
+					b = 0;
+				else
+					b = img.getColor(x,y).getB() + delta;
+				
+				Color newColor2 = new Color(r,g,b);
+				newImg.setColor(x, y, newColor2);
 					
 				}		
 			}	
-		}
 		return newImg;
 	}
 	
 	// 3. Espelhar a imagem horizontalmente.
-	ColorImage horizontal(ColorImage img) {
+	ColorImage mirrorH(ColorImage img) {
 		
 		ColorImage newImg = new ColorImage(img.getWidth(),img.getHeight());
 		
@@ -159,6 +171,4 @@ class ColorImage {
 		}
 		return selection;
 	}
-	
-	
 }
