@@ -2,8 +2,8 @@ class Aula6 {
 
 //	TRABALHO PREVIO
 //	
-//	A. Criar uma matriz retangular com números inteiros de 0 a 9 aleatórios, dado o 
-//	   número de linhas e número de colunas.
+//	A. Criar uma matriz retangular com nÃºmeros inteiros de 0 a 9 aleatÃ³rios, dado o 
+//	   nÃºmero de linhas e nÃºmero de colunas.
 //
 //	   static int[][] randomMatrix(int lines, int columns) { }
 	
@@ -25,8 +25,8 @@ class Aula6 {
 		
 	}
 	
-//	B .Criar uma matriz quadrada com números inteiros de 0 a 9 aleatórios, dado 
-//	   apenas um inteiro correspondente ao número de linhas/colunas.
+//	B .Criar uma matriz quadrada com nÃºmeros inteiros de 0 a 9 aleatÃ³rios, dado 
+//	   apenas um inteiro correspondente ao nÃºmero de linhas/colunas.
 	
 	static int[][] randomSquareMatrix(int lines) { 
 		return randomMatrix (lines, lines);
@@ -38,7 +38,7 @@ class Aula6 {
 		mat=randomSquareMatrix(3);
 	}		
 	
-//	C. Obter o somatório de todos os elementos de uma matriz dada como argumento.
+//	C. Obter o somatÃ³rio de todos os elementos de uma matriz dada como argumento.
 	
 	static int somaMatrix(int [][] m) {
 		int soma=0;
@@ -53,8 +53,8 @@ class Aula6 {
 		System.out.print(somaMatrix(randomMatrix(2,3)));
 	}
 	
-//	D .Saber o número de elementos de uma matriz dada como argumento. 
-//	   Recorde que as linhas de uma matriz (vetores) não têm necessariamente o 
+//	D .Saber o nÃºmero de elementos de uma matriz dada como argumento. 
+//	   Recorde que as linhas de uma matriz (vetores) nÃ£o tÃªm necessariamente o 
 //	   mesmo comprimento.
 		
 	static int LengthMatrix(int [][] m) {
@@ -96,8 +96,8 @@ class Aula6 {
 			System.out.println(w[k]+" ");
 	}
 	
-//	B. Criar uma matriz, dados um vetor com valores, um número de linhas, e 
-//	   um número de colunas.
+//	B. Criar uma matriz, dados um vetor com valores, um nÃºmero de linhas, e 
+//	   um nÃºmero de colunas.
 //
 //	   static int[][] matrixFrom(int[] v, int lines, int columns) { }
 	
@@ -124,8 +124,8 @@ class Aula6 {
 		}
 	}
 		
-//	C. Verificar se uma matriz em Java (int[][]) é uma matriz de 
-//	   Álgebra válida (i.e. se todas as linhas têm o mesmo comprimento).
+//	C. Verificar se uma matriz em Java (int[][]) Ã© uma matriz de 
+//	   Ãlgebra vÃ¡lida (i.e. se todas as linhas tÃªm o mesmo comprimento).
 	
 	static boolean validaMatrix(int [][] m) {
 		int colunas=m[0].length;
@@ -141,9 +141,9 @@ class Aula6 {
 		System.out.println(validaMatrix(m));
 	}
 	
-//	D. Verificar se uma matriz em Java (int[][]) é uma matriz de Álgebra quadrada 
-//	   válida (i.e. se todas as linhas têm o mesmo comprimento e se o número de linhas 
-//	   corresponde ao número de colunas).
+//	D. Verificar se uma matriz em Java (int[][]) Ã© uma matriz de Ãlgebra quadrada 
+//	   vÃ¡lida (i.e. se todas as linhas tÃªm o mesmo comprimento e se o nÃºmero de linhas 
+//	   corresponde ao nÃºmero de colunas).
 	
 	static boolean validaMatrixQuadrada(int [][] m) {
 		int colunas=m[0].length;
@@ -162,9 +162,9 @@ class Aula6 {
 		System.out.println(validaMatrix(m));
 	}
 	
-//	E. Verificar se duas matrizes são iguais.
-//	   Desenvolva uma classe estática contendo funções e procedimentos sobre matrizes algébricas, 
-//	   assumindo que as matrizes são válidas no contexto da Álgebra (i.e. todas as linhas têm o 
+//	E. Verificar se duas matrizes sÃ£o iguais.
+//	   Desenvolva uma classe estÃ¡tica contendo funÃ§Ãµes e procedimentos sobre matrizes algÃ©bricas, 
+//	   assumindo que as matrizes sÃ£o vÃ¡lidas no contexto da Ãlgebra (i.e. todas as linhas tÃªm o 
 //	   mesmo comprimento), permitindo:
 
 //	m1[i][j] = m2[i][j]  VER VIDEOS NA NET DAS AULAS PASSADAS... ELE NAO FEZ
@@ -222,7 +222,7 @@ class Aula6 {
 				
 				
 				
-//	 H. Efetuar a adição de duas matrizes, sendo que a primeira é modificada ficando com o resultado da adição.
+//	 H. Efetuar a adiÃ§Ã£o de duas matrizes, sendo que a primeira Ã© modificada ficando com o resultado da adiÃ§Ã£o.
 //
 //	    static void accumulate(int[][] m1, int[][] m2) { }
 
@@ -246,7 +246,7 @@ class Aula6 {
 		
 		
 		
-//		I .Verificar se uma matriz é uma matriz identidade.
+//		I .Verificar se uma matriz Ã© uma matriz identidade.
 		
 		static boolean checkIdentity(int[][] m) {
 			for (int i=0 ; i < m.length ; i++)
@@ -263,7 +263,7 @@ class Aula6 {
 			System.out.println(checkIdentity(m2));		
         }		
 	    
-//		J. Obter uma coluna da matriz como um vetor, dado o índice da coluna.
+//		J. Obter uma coluna da matriz como um vetor, dado o Ã­ndice da coluna.
 
 		static int[] getColumn(int[][] m, int coluna) {
 			int [] v= new int [m.length];
@@ -314,7 +314,7 @@ class Aula6 {
 					
 		
 		
-//		L. Verificar se uma matriz é simétrica.
+//		L. Verificar se uma matriz Ã© simÃ©trica.
 		
 			static boolean CheckSimetry(int[][] m) {
 				for (int i=0 ; i < m.length ; i++)
@@ -334,8 +334,8 @@ class Aula6 {
 		
 		
 //		ADICIONAIS:
-//			A.Defina uma função para multiplicar duas matrizes, 
-//			assumindo que as mesmas têm dimensões válidas para tal operação.
+//			A.Defina uma funÃ§Ã£o para multiplicar duas matrizes, 
+//			assumindo que as mesmas tÃªm dimensÃµes vÃ¡lidas para tal operaÃ§Ã£o.
 		
 			static int[][] multiplica(int[][] m1, int[][] m2) {
 				int [][] m= new int [m1.length][m2[0].length];
