@@ -78,8 +78,4 @@ class Color {
 		return (c.getR() == c.getG() && c.getR() == c.getB());
 	}
 	
-	
-	
-	
-	
 }
