@@ -51,5 +51,35 @@ class Color {
 	static boolean valid(int value) {
 		return value >= 0 && value <= 255;
 	}
-
+	
+	// Acrescente à classe Color constantes que representem as cores mais comuns 
+	// (branco, preto, vermelho, verde, azul, etc.).
+	static final Color Red = new Color(255,0,0);
+	static final Color Green = new Color(0,255,0);
+	static final Color Blue = new Color(0,0,255);
+	static final Color White = new Color(255,255,255);
+	static final Color Black = new Color(0,0,0);
+	
+	// Devolver a cor inversa (255 - R, 255 - G, 255 - B).
+	Color getInv(Color c){
+		Color newC = new Color(255 - c.getR(), 255 - c.getG(), 255 - c.getB());		
+		return newC;
+	}
+	
+	// Devolver uma cor mais clara/escura, dependendo de um valor 
+	// (positivo - mais clara; negativo - mais escura).
+	Color brighter(Color c, int value) {
+		Color newC = new Color(c.getR() + value, c.getG() + value, c.getB() + value);
+		return newC;
+	}
+	// Dada uma cor, devolver verdadeiro se os valores RGB forem 
+	// iguais ao da cor que invoca a operação ou falso, caso contrário.
+	Boolean sameColor(Color c) {
+		return (c.getR() == c.getG() && c.getR() == c.getB());
+	}
+	
+	
+	
+	
+	
 }
