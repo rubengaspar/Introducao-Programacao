@@ -33,4 +33,37 @@ class ColorImage {
 		int[] rgb = ImageUtil.decodeRgb(data[y][x]);
 		return new Color(rgb[0], rgb[1], rgb[2]);
 	}
+	
+	// 1. Inverter as cores de uma imagem. Deverá ser utilizada a função desenvolvida 
+	// nos exercícios sobre cores
+	
+	Color inverted(Color c) {    
+		Color invColor = new Color(255 - c.getR(), 255 - c.getG(), 255 - c.getB());
+	return invColor;
+	}
+	
+	// 2. Transformar a imagem, tornando-a mais clara de acordo com um valor dado. 
+	// Um valor positivo torna a imagem mais clara, um valor negativo torna a 
+	// imagem mais escura. Deverá ser utilizada a função desenvolvida nos exercícios sobre cores.
+	
+	Color changeBrightness (Color c, int delta) {    
+		
+		int min = 0;
+		int max = 255;
+				
+		if ( ((c.getR() + delta) < min) || 
+			((c.getG() + delta) < min) || 
+			((c.getB() + delta) < min) ||
+			((c.getR() + delta) > max) || 
+			((c.getG() + delta) > max) || 
+			((c.getB() + delta) > max))  {
+			
+			System.out.println("Luminance Change too high");
+			return c;
+		
+		} else {
+			Color newColor = new Color(c.getR() + delta, c.getG() + delta, c.getB() + delta);
+			return newColor;
+		}		
+	}
 }
